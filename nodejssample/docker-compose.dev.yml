@@ -1,0 +1,19 @@
+version : "3"
+services:
+  node-app:
+    build: 
+      context: .
+      args:
+        - NODE_ENV=development
+        
+    volumes:
+      # :ro to keep this folder readonly so that docker cannot write anything back to source
+      - ./:/app:ro
+      # this folder to be retained 
+      - /app/node_modules 
+    environment:
+      - PORT=3500
+      - NODE_ENV=development # in prod set it to prod
+    # env_file: 
+    #   - ./.env
+    command: npm run dev

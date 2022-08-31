@@ -1,0 +1,13 @@
+version : "3"
+services:
+  node-app:    
+    build: 
+      context: .
+      args:
+        - NODE_ENV=production
+    environment:
+      - PORT=3500
+      - NODE_ENV=production # in prod set it to prod
+    # env_file: 
+    #   - ./.env
+    command: npm start
