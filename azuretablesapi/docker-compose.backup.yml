@@ -1,0 +1,17 @@
+version : "3"
+services:
+  node-app:
+    build: . 
+    ports:
+      # exposed ports from image
+      - "3500:3500"
+    volumes:
+      # :ro to keep this folder readonly so that docker cannot write anything back to source
+      - ./:/app:ro
+      # this folder to be retained 
+      - /app/node_modules 
+    environment:
+      - PORT=3500    
+    # env_file: 
+    #   - ./.env
+    

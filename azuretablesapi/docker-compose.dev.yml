@@ -1,8 +1,8 @@
 version : "3"
 services:
-  node_app_dev:
-    container_name: nodeappdev
-    image: node-app:dev
+  azuretablesapi_prod:
+    container_name: azuretablesapi_dev
+    image: azuretablesapi_dev:latest
     ports:
       - "3000:3000"    
     build:       
@@ -16,7 +16,7 @@ services:
       - /app/node_modules 
     environment:
       - PORT=3000
-      - NODE_ENV=development # in prod set it to prod
+      - NODE_ENV=development # in prod set it to prod      
     # env_file: 
     #   - ./.env
     command: npm run dev

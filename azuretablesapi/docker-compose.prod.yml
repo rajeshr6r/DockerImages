@@ -1,8 +1,8 @@
 version : "3"
 services:
-  node_app_prod:    
-    container_name: nodeappprod
-    image: nodeapp:prod
+  azuretablesapi_prod:    
+    container_name: azuretablesapi_prod
+    image: azuretablesapi_prod:latest
     ports:
       - "4000:4000"    
     build:       
