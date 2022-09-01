@@ -48,7 +48,7 @@ app.use('/logout', require('./routes/logout'));
 
 //using this route without JWT . Will later move to use with JWT
 app.use('/subscribers', require('./routes/api/subscribers'));
-app.use('/crudops', require('./routes/api/gpcrud'));
+app.use('/crudops', require('./routes/api/gpcrud.js'));
 
 app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
