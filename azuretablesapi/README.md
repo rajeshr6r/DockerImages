@@ -24,4 +24,8 @@
 
 #####DOWN
 
-`docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v`
+`docker-compose -f docker-compose.yml -f docker-compose.dev.yml do
+
+### Stream docker logs
+
+`docker logs --follow <running containername>`

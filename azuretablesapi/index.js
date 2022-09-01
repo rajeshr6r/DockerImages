@@ -17,19 +17,8 @@ const PORT = process.env.PORT || 3500;
 // Connect to MongoDB
 //connectDB();
 
-// Initialize Azure Tbl DB
-
-try {
-    const tableService = TableServiceClient.fromConnectionString(process.env.AZURE_TBL_CONNECTIONSTRING);
-    console.log(tableService);
-} catch (err) {
-    console.error(err);
-}
-
-
-
 // custom middleware logger
-app.use(logger);
+//app.use(logger);
 
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
@@ -59,6 +48,7 @@ app.use('/logout', require('./routes/logout'));
 
 //using this route without JWT . Will later move to use with JWT
 app.use('/subscribers', require('./routes/api/subscribers'));
+app.use('/crudops', require('./routes/api/gpcrud'));
 
 app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
