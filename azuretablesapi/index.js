@@ -42,17 +42,21 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 // routes
 app.use('/', require('./routes/root'));
 app.use('/register', require('./routes/register'));
+app.use('/azregister', require('./routes/azregister'));
 app.use('/auth', require('./routes/auth'));
+app.use('/azauth', require('./routes/azauth'));
 app.use('/refresh', require('./routes/refresh'));
+app.use('/azrefresh', require('./routes/azrefresh'));
 app.use('/logout', require('./routes/logout'));
+app.use('/azlogout', require('./routes/azlogout'));
 
-//using this route without JWT . Will later move to use with JWT
-app.use('/subscribers', require('./routes/api/subscribers'));
-app.use('/crudops', require('./routes/api/gpcrud.js'));
 
 app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
 app.use('/users', require('./routes/api/users'));
+app.use('/subscribers', require('./routes/api/subscribers'));
+app.use('/crudops', require('./routes/api/gpcrud.js'));
+
 
 app.all('*', (req, res) => {
     res.status(404);
